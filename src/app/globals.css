@@ -1,0 +1,427 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-forest-50: #f1f7f3;
+  --color-forest-100: #dcebe2;
+  --color-forest-200: #bad7c6;
+  --color-forest-300: #8dbba1;
+  --color-forest-400: #5c9878;
+  --color-forest-500: #3a7a59;
+  --color-forest-600: #2a6146;
+  --color-forest-700: #1f4c37;
+  --color-forest-800: #193d2d;
+  --color-forest-900: #143126;
+  --color-forest-950: #0a1c16;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, Cambria, serif;
+  --font-mono: var(--font-mono-code), ui-monospace, SFMono-Regular, monospace;
+
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.025em;
+
+  --animate-reveal: reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+:root {
+  --surface: #fbfaf7;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f3f1ea;
+  --ink: #16201c;
+  --ink-muted: #5b6560;
+  --ink-subtle: #7d857f;
+  --line: #e5e1d8;
+  --accent: #1f4c37;
+  --accent-hover: #2a6146;
+  --accent-contrast: #fbfaf7;
+  --ring: #3a7a59;
+}
+
+.dark {
+  --surface: #0c1512;
+  --surface-raised: #111d18;
+  --surface-sunken: #091210;
+  --ink: #e8ede9;
+  --ink-muted: #9ba8a1;
+  --ink-subtle: #7d8b84;
+  --line: #22322b;
+  --accent: #8dbba1;
+  --accent-hover: #bad7c6;
+  --accent-contrast: #0a1c16;
+  --ring: #5c9878;
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor jumps so sticky headers don't cover the target heading. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-forest-200);
+    color: var(--color-forest-950);
+  }
+
+  .dark ::selection {
+    background-color: var(--color-forest-800);
+    color: var(--color-forest-50);
+  }
+
+  hr {
+    border-color: var(--line);
+  }
+}
+
+/* Scroll reveal only hides content once JavaScript is confirmed to be running. */
+.js [data-reveal]:not([data-reveal-shown]) {
+  opacity: 0;
+}
+
+[data-reveal][data-reveal-shown] {
+  animation: var(--animate-reveal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------- prose --------------------------------- */
+
+.prose {
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.prose > * + * {
+  margin-top: 1.25em;
+}
+
+.prose h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-top: 0;
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.prose a:hover {
+  color: var(--accent-hover);
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li::marker {
+  color: var(--ink-subtle);
+}
+
+.prose li + li {
+  margin-top: 0.4em;
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25em;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  border: 1px solid var(--line);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: var(--surface-sunken);
+  font-weight: 600;
+}
+
+.prose :not(pre) > code {
+  background-color: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  padding: 0.1em 0.35em;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* Anchor links injected by rehype-autolink-headings. */
+.prose .heading-anchor {
+  color: var(--ink-subtle);
+  margin-left: 0.4rem;
+  opacity: 0;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor,
+.prose .heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+/* ------------------------------ code blocks ------------------------------- */
+
+.prose figure[data-rehype-pretty-code-figure] {
+  position: relative;
+  margin-top: 1.75em;
+  margin-bottom: 1.75em;
+}
+
+.prose figure[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  background-color: var(--surface-sunken);
+}
+
+.prose [data-rehype-pretty-code-title] {
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: var(--surface-sunken);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.prose [data-rehype-pretty-code-title] + pre {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.prose pre code {
+  display: grid;
+  font-family: var(--font-mono);
+}
+
+.prose pre code [data-line] {
+  padding: 0 1rem;
+  border-left: 2px solid transparent;
+}
+
+.prose pre code [data-highlighted-line] {
+  background-color: color-mix(in oklab, var(--accent) 12%, transparent);
+  border-left-color: var(--accent);
+}
+
+.prose mark[data-highlighted-chars] {
+  background-color: color-mix(in oklab, var(--accent) 18%, transparent);
+  border-radius: 0.2rem;
+  padding: 0.1em 0.2em;
+  color: inherit;
+}
+
+/* rehype-pretty-code emits both themes as custom properties on each token. */
+.prose pre code span {
+  color: var(--shiki-light);
+}
+
+.dark .prose pre code span {
+  color: var(--shiki-dark);
+}
+
+.prose pre code [data-line]::before {
+  content: counter(line);
+  counter-increment: line;
+  display: inline-block;
+  width: 1.25rem;
+  margin-right: 1.25rem;
+  text-align: right;
+  color: var(--ink-subtle);
+}
+
+.prose pre code {
+  counter-reset: line;
+}
+
+.prose pre code[data-line-numbers="false"] [data-line]::before {
+  content: none;
+}
+
+/* ---------------------------------- print --------------------------------- */
+
+@media print {
+  @page {
+    margin: 0.6in;
+  }
+
+  :root {
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --surface-sunken: #ffffff;
+    --ink: #000000;
+    --ink-muted: #333333;
+    --ink-subtle: #555555;
+    --line: #cccccc;
+    --accent: #000000;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10.5pt;
+  }
+
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  [data-print="full"] {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+
+  /* Surface destinations that are otherwise lost on paper. */
+  .print-url a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555555;
+    word-break: break-all;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  li,
+  article,
+  section {
+    break-inside: avoid;
+  }
+
+  * {
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
