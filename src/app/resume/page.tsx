@@ -32,7 +32,7 @@ function ResumeSection({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="border-line scroll-mt-24 border-t pt-10">
+    <section id={id} className="border-line scroll-mt-24 border-t pt-10 print:break-inside-avoid">
       <h2 className="text-ink-subtle font-mono text-xs tracking-[0.18em] uppercase">{title}</h2>
       <div className="mt-6">{children}</div>
     </section>
