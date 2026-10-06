@@ -50,6 +50,7 @@ export const experience: Experience[] = [
     end: "Present",
     summary: "Lippert supplies a wide array of components for the leading manufacturers of recreational vehicles, automobiles, watercraft and prefab homes. My role has been to develop and maintain marketing websites and digital experiences across the various brands in the Lippert family.",
     highlights: [
+      "Exploring and integrating AI tools such as Claude Code and Cursor into the development workflow to enhance productivity and expand capabilities.",
       "Assisting in the launch of multiple new marketing websites across the Lippert brands using various platforms including MODX, Hugo, Nuxt, and Magento.",
       "Working with key stakeholders to build and maintain forms for lead generation and customer feedback across multiple websites.",
       "Keeping up to date with the latest introduced platforms as technologies and company needs shift. Examples include starting with MODX which is a PHP-based CMS, and later adopting Hugo and Nuxt.js.",
