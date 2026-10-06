@@ -21,7 +21,7 @@ export type Education = {
 };
 
 export const summary =
-  "I have worked for the past eighteen years in web development, focusing on frontend technologies and user experience. I have worked on small but, nimble teams taking care of multiple outside clients to large marketing teams internally focused on a single corporation. I have a track record of effective collaboration with other team members to accomplish set goals. Despite my years in the industry, I am coachable and eager to learn new skills.";
+  "I have worked for the past eighteen years in web development, focusing on frontend technologies and user experience. I have worked on small but, nimble teams taking care of multiple outside clients to large marketing teams internally focused on a single corporation. I have a track record of effective collaboration with other team members to accomplish set goals. Despite my years in the industry, I am coachable and eager to learn new skills, such as diving into the new world of AI development.";
 
 export const competencies: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["JavaScript", "TypeScript", "PHP", "SQL", "HTML", "CSS", "AI development"] },
