@@ -15,6 +15,11 @@ export function SiteFooter() {
           <div className="max-w-sm">
             <p className="font-serif text-lg">{site.name}</p>
             <p className="text-ink-muted mt-2 text-sm">{site.tagline}</p>
+            <p className="mt-2 text-sm italic">
+              <Link href="/soli-deo-gloria" className="text-ink-muted hover:text-accent">
+                Soli Deo Gloria
+              </Link>
+            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 text-sm sm:gap-16">
