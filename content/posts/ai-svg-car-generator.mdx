@@ -1,9 +1,9 @@
 ---
 title: "Teaching AI to Design Cars for My Laser Cutter"
 description: "How I used AI to build an SVG car generator that produces laser-cut-ready files"
-date: "2026-11-02"
+date: "2026-11-04"
 tags: ["AI", "Laser Cutting", "SVG"]
-draft: true
+draft: false
 ---
 
 While on vacation this summer I started a small side project when nothing else was going on in the evenings. I decided to see how far I could get creating my own SVG generator for laser cutting. I currently have an XTool D1 Pro 20 watt diode laser. It does a great job making quick work of thinner materials such as 3mm plywood or 3mm hardboard. With the extensions I also have plenty of room for larger work pieces. 
@@ -20,24 +20,24 @@ SVG is a vector graphic format that works well when imported into laser cutting 
 
 ### What I Asked For
 
-[Your prompts and the tooling you used. How you described the car.]
+At the time Claude Fable 5 had just come out and I wanted to give it a try with something a little more complex. My prompt included instructions that the output should be to SVG. I also let it know what parameters I wanted such as width, length, height, number of slices, etc. Refinements included adding options for the roundness of corners, belt line/roof line ratios, wheel arch size, and axle height.
 
-### What Worked
+### Challenges
 
-[Where AI saved time.]
-
-### What Didn't
-
-[Where it fell short: bad geometry, kerf and tolerances, paths that don't close, parts that don't fit.]
+While the overall process worked great and produced what I asked in retrospect I made the scope too big when asking for multiple body styles. I would have been able to dial in things more efficiently if I had chosen one style. Once things looked good I could have spun off other branches with different body styles.
 
 ## From Screen to Laser
 
-[The first real cut. Materials, settings, and what you had to fix between the preview and the physical part.]
+When we returned from vacation I fired up the laser for a first test cut. Surprisingly, it worked the first time around! The parts fit together as I hoped they would without modifications.
 
 ## The Result
 
-[Photos of the finished cars and a link to the generator or repo.]
+![A toy car laser cut from plywood using the SVG generator](/posts/SVG-laser-cut-car-optimized.jpg)
+
+The generator is open source. You can find the code on [GitHub](https://github.com/micahrigg/svg-car-generator).
 
 ## What I Learned
 
-[Takeaways, and how this fits with your thoughts on AI as a tool.]
+AI agents can go beyond websites and can be used to create tooling for physical items that can be created on CNC machines. This opens up a whole new world of possibilities for small shop manufacturing.
+
+Stay tuned! When I have time I would like to revisit this and add in extra refinements.
