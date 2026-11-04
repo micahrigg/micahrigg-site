@@ -47,8 +47,8 @@ export const experience: Experience[] = [
     title: "Marketing Developer",
     location: "Elkhart, IN",
     start: "2015",
-    end: "Present",
-    summary: "Lippert supplies a wide array of components for the leading manufacturers of recreational vehicles, automobiles, watercraft and prefab homes. My role has been to develop and maintain marketing websites and digital experiences across the various brands in the Lippert family.",
+    end: "2026",
+    summary: "Lippert supplies a wide array of components for the leading manufacturers of recreational vehicles, automobiles, watercraft and prefab homes. My role was to develop and maintain marketing websites and digital experiences across the various brands in the Lippert family.",
     highlights: [
       "Exploring and integrating AI tools such as Claude Code and Cursor into the development workflow to enhance productivity and expand capabilities.",
       "Assisting in the launch of multiple new marketing websites across the Lippert brands using various platforms including MODX, Hugo, Nuxt, and Magento.",
